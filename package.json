@@ -1,0 +1,65 @@
+{
+  "name": "extra-map-card",
+  "version": "0.0.1",
+  "description": "Lovelace custom map card for Home Assistant",
+  "keywords": [
+    "home-assistant",
+    "homeassistant",
+    "hass",
+    "map",
+    "map-card",
+    "lovelace",
+    "custom-cards"
+  ],
+  "author": "Viet Ngoc",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ngocjohn/extra-map-card",
+    "repo": "ngocjohn/extra-map-card"
+  },
+  "module": "extra-map-card.js",
+  "license": "MIT",
+  "dependencies": {
+    "@maptiler/sdk": "^3.0.1",
+    "@mdi/js": "^7.4.47",
+    "custom-card-helpers": "^1.9.0",
+    "home-assistant-js-websocket": "^9.4.0",
+    "lit": "^3.2.1",
+    "memoize-one": "^6.0.0"
+  },
+  "devDependencies": {
+    "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-node-resolve": "^16.0.0",
+    "@babel/core": "^7.26.9",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@turf/turf": "^7.2.0",
+    "@typescript-eslint/eslint-plugin": "^8.24.0",
+    "@typescript-eslint/parser": "^8.24.0",
+    "es-toolkit": "^1.32.0",
+    "eslint": "^9.20.1",
+    "eslint-plugin-perfectionist": "^4.9.0",
+    "eslint-plugin-unused-imports": "^4.1.4",
+    "husky": "^8.0.0",
+    "lint-staged": "^15.4.3",
+    "postcss-preset-env": "^10.1.4",
+    "rollup": "^4.34.7",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-filesize": "^10.0.0",
+    "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-postcss-lit": "^2.1.0",
+    "rollup-plugin-serve": "^1.1.1",
+    "rollup-plugin-typescript2": "^0.36.0",
+    "tslib": "^2.8.1",
+    "typescript": "^5.7.3"
+  },
+  "browser": {
+    "crypto": false
+  },
+  "scripts": {
+    "dev": "rollup -c rollup.config.js --bundleConfigAsCjs --watch",
+    "build": "npm run lint && npm run rollup",
+    "lint": "eslint src/**/*.ts",
+    "rollup": "rollup -c rollup.config.js --bundleConfigAsCjs",
+    "prepare": "husky install"
+  }
+}
