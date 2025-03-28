@@ -131,7 +131,7 @@ export const subscribeHistoryStatesTimeWindow = (
     start_time: new Date(new Date().getTime() - 60 * 60 * hoursToShow * 1000).toISOString(),
     minimal_response: minimalResponse,
     significant_changes_only: significantChangesOnly,
-    no_attributes: noAttributes,
+    no_attributes: noAttributes ?? !entityIds.some((entityId) => entityIdHistoryNeedsAttributes(hass, entityId)),
   };
   const stream = new HistoryStream(hass, hoursToShow);
   return hass.connection.subscribeMessage<HistoryStreamMessage>(

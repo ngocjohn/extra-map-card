@@ -1,3 +1,6 @@
+import { LngLatLike } from '@maptiler/sdk';
+import { HomeAssistant } from '@types';
+
 import { LovelaceCardConfig } from './ha-frontend/lovelace/lovelace';
 
 export interface EntityConfig {
@@ -13,6 +16,43 @@ export interface MapEntityConfig extends EntityConfig {
   attribute?: string;
   focus?: boolean;
 }
+
+export interface HaMapEntity {
+  entity_id: string;
+  color: string;
+  label_mode?: 'name' | 'state' | 'attribute' | 'icon';
+  attribute?: string;
+  name?: string;
+  focus?: boolean;
+}
+
+export interface HaMapPathPoint {
+  point: LngLatLike;
+  timestamp: Date;
+}
+
+export interface HaMapPaths {
+  points: HaMapPathPoint[];
+  color?: string;
+  name?: string;
+  gradualOpacity?: number;
+  fullDatetime?: boolean;
+}
+
+export interface HaEntityMarker extends HTMLElement {
+  hass?: HomeAssistant;
+  entityId?: string;
+  entityName?: string;
+  entityPicture?: string;
+  entityColor?: string;
+  showIcon?: boolean;
+}
+
+export interface CustomStyles {
+  light?: string;
+  dark?: string;
+}
+
 export type ThemeMode = 'auto' | 'light' | 'dark';
 
 export interface ExtraMapCardConfig extends LovelaceCardConfig {
@@ -28,4 +68,7 @@ export interface ExtraMapCardConfig extends LovelaceCardConfig {
   theme_mode?: ThemeMode;
   light_theme?: string;
   dark_theme?: string;
+  show_all?: boolean;
+  block_more_info?: boolean;
+  custom_styles?: CustomStyles;
 }
