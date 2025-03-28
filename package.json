@@ -1,6 +1,6 @@
 {
   "name": "extra-map-card",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Lovelace custom map card for Home Assistant",
   "keywords": [
     "home-assistant",
@@ -23,14 +23,15 @@
     "@maptiler/sdk": "^3.0.1",
     "@mdi/js": "^7.4.47",
     "custom-card-helpers": "^1.9.0",
+    "date-fns": "^4.1.0",
     "home-assistant-js-websocket": "^9.4.0",
     "lit": "^3.2.1",
     "memoize-one": "^6.0.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.26.9",
     "@rollup/plugin-babel": "^6.0.4",
     "@rollup/plugin-node-resolve": "^16.0.0",
-    "@babel/core": "^7.26.9",
     "@rollup/plugin-terser": "^0.4.4",
     "@turf/turf": "^7.2.0",
     "@typescript-eslint/eslint-plugin": "^8.24.0",
@@ -58,7 +59,7 @@
   "scripts": {
     "dev": "rollup -c rollup.config.js --bundleConfigAsCjs --watch",
     "build": "npm run lint && npm run rollup",
-    "lint": "eslint src/**/*.ts",
+    "lint": "eslint src/**/*.ts --fix",
     "rollup": "rollup -c rollup.config.js --bundleConfigAsCjs",
     "prepare": "husky install"
   }
