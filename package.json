@@ -1,6 +1,6 @@
 {
   "name": "extra-map-card",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Lovelace custom map card for Home Assistant",
   "keywords": [
     "home-assistant",
