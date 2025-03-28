@@ -13,20 +13,19 @@ export default function parseAspectRatio(input: string) {
     return null;
   }
   try {
-    if (input.endsWith("%")) {
+    if (input.endsWith('%')) {
       return { w: 100, h: parseOrThrow(input.substr(0, input.length - 1)) };
     }
 
-    const arr = input.replace(":", "x").split("x");
+    const arr = input.replace(':', 'x').split('x');
     if (arr.length === 0) {
       return null;
     }
 
-    return arr.length === 1
-      ? { w: parseOrThrow(arr[0]), h: 1 }
-      : { w: parseOrThrow(arr[0]), h: parseOrThrow(arr[1]) };
+    return arr.length === 1 ? { w: parseOrThrow(arr[0]), h: 1 } : { w: parseOrThrow(arr[0]), h: parseOrThrow(arr[1]) };
   } catch (_err: any) {
     // Ignore the error
+    console.warn(`Error parsing aspect ratio: ${_err.message}`);
   }
   return null;
 }
